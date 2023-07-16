@@ -14,6 +14,7 @@
 		CAFA0CA62A6342CC002C4DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */; };
 		CAFA0CA92A6342CC002C4DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */; };
 		CAFA0CB12A637228002C4DCB /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */; };
+		CAFA0CB32A63C688002C4DCB /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CAFA0CA82A6342CC002C4DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAFA0CAA2A6342CC002C4DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
+		CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */,
 				CAFA0CA02A6342CA002C4DCB /* ViewController.swift */,
 				CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */,
+				CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */,
 				CAFA0CA22A6342CA002C4DCB /* Main.storyboard */,
 				CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */,
 				CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				CAFA0CB12A637228002C4DCB /* PlaceListViewController.swift in Sources */,
 				CAFA0CA12A6342CA002C4DCB /* ViewController.swift in Sources */,
+				CAFA0CB32A63C688002C4DCB /* PlaceDetailViewController.swift in Sources */,
 				CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */,
 				CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */,
 			);

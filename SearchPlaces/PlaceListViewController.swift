@@ -84,27 +84,99 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        // Remove old content
         cell.contentView.subviews.forEach { $0.removeFromSuperview() }
+
+        let imageSize: CGFloat = 30
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "homebgd")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false // Enable Auto Layout
+       
+
+        let label1 = UILabel()
+        label1.text = "\(indexPath.row + 1)"
+        label1.textAlignment = .center
+        label1.translatesAutoresizingMaskIntoConstraints = false // Enable Auto Layout
         
-        // Add 4 labels
-        let labelWidth = cell.contentView.frame.size.width / 4
-        let labelHeight = cell.contentView.frame.size.height
-        let labels = (0..<4).map { (index) -> UILabel in
-            let label = UILabel(frame: CGRect(x: CGFloat(index) * labelWidth, y: 0, width: labelWidth, height: labelHeight))
-            label.textAlignment = .center
-            return label
-        }
+
+        let label2 = UILabel()
+        label2.text = placeNames[indexPath.row]
+        label2.textAlignment = .center
+        label2.translatesAutoresizingMaskIntoConstraints = false // Enable Auto Layout
         
-        labels[0].text = "\(indexPath.row + 1)"
-        labels[1].text = placeNames[indexPath.row]
-        labels[2].text = suburbNames[indexPath.row]
-        labels[3].text = distances[indexPath.row]
-        
-        labels.forEach { cell.contentView.addSubview($0) }
-        
+        let label3 = UILabel()
+        label3.text = suburbNames[indexPath.row]
+        label3.textAlignment = .center
+        label3.translatesAutoresizingMaskIntoConstraints = false // Enable Auto Layout
+        //label3.layer.borderWidth = 1
+        //label3.layer.borderColor = UIColor.gray.cgColor
+
+        let label4 = UILabel()
+        label4.text = distances[indexPath.row]
+        label4.textAlignment = .center
+        label4.translatesAutoresizingMaskIntoConstraints = false // Enable Auto Layout
+       
+
+        // Add subviews
+        cell.contentView.addSubview(label1)
+        cell.contentView.addSubview(label2)
+        cell.contentView.addSubview(imageView)
+        cell.contentView.addSubview(label3)
+        cell.contentView.addSubview(label4)
+
+        // Apply constraints
+        NSLayoutConstraint.activate([
+            label1.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
+            label1.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+            label1.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: 0.10), // 20% of the cell's width
+
+            imageView.leadingAnchor.constraint(equalTo: label1.trailingAnchor),
+            imageView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: imageSize),
+            imageView.heightAnchor.constraint(equalToConstant: imageSize),
+
+            label2.leadingAnchor.constraint(equalTo: imageView.trailingAnchor),
+            label2.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+            label2.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: 0.25),
+
+            label3.leadingAnchor.constraint(equalTo: label2.trailingAnchor),
+            label3.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+            label3.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: 0.35),
+
+            label4.leadingAnchor.constraint(equalTo: label3.trailingAnchor),
+            label4.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
+            label4.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+        ])
+
         return cell
+    }
+
+
+
+
+    
+    // This method gets called when a row is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Deselect the row after it's selected to get rid of the gray highlight.
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // Perform the segue. You can pass the indexPath if you need to know which cell was tapped.
+        performSegue(withIdentifier: "listToDetailSegue", sender: indexPath)
+    }
+
+    // This method allows you to pass data to the new view controller before the segue happens
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Check the identifier of the segue so you don't mix up different segues
+        if segue.identifier == "listToDetailSegue" {
+            // Get a reference to the new view controller
+            let placeDetailViewController = segue.destination as! PlaceDetailViewController
+
+            // Pass data to the new view controller here.
+            // For example, if you want to pass the selected cell's text, you might do something like this:
+            let indexPath = sender as! IndexPath
+            let cell = tableView.cellForRow(at: indexPath)
+            placeDetailViewController.title = cell?.textLabel?.text
+        }
     }
 }
 

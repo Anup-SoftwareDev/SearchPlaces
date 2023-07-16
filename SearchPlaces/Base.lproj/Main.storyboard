@@ -89,10 +89,39 @@
                             <constraint firstItem="WgF-QR-UlT" firstAttribute="leading" secondItem="A9D-Nc-D7r" secondAttribute="leading" id="vQl-Mx-QUk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Aldi Locations" id="d6H-QW-oxt"/>
+                    <navigationItem key="navigationItem" title="Aldi Locations" id="d6H-QW-oxt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="LST-lo-Lm0"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8Kh-rC-CIZ" kind="show" identifier="listToDetailSegue" id="MYv-60-hU3"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1736.6412213740457" y="-27.464788732394368"/>
+        </scene>
+        <!--Aldi Details-->
+        <scene sceneID="J2M-fo-BLi">
+            <objects>
+                <viewController id="8Kh-rC-CIZ" customClass="PlaceDetailViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DH1-gV-1Se">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="listplaces" translatesAutoresizingMaskIntoConstraints="NO" id="Cnp-JO-ynd">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9OW-3X-ynO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Details" id="JdH-Y9-2X3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="OEV-Cg-lka"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nee-b6-6kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Epn-Ck-6zW">
