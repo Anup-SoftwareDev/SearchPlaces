@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Aa-Lx-N3z">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="-108" width="393" height="960"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search-A-Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUL-zS-NC2">
-                                <rect key="frame" x="50" y="59" width="293.33333333333331" height="100"/>
+                                <rect key="frame" x="50" y="155" width="293.33333333333331" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Eag-Nq-Iw7"/>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Place Name" translatesAutoresizingMaskIntoConstraints="NO" id="KCg-Mx-1qG">
-                                <rect key="frame" x="40" y="159" width="313" height="56"/>
+                                <rect key="frame" x="40" y="255" width="313" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -52,18 +52,75 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djJ-Yz-adu" secondAttribute="trailing" id="wpQ-ll-Nc5"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yjy-JZ-tyt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="P9s-UY-cVE"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="KCg-Mx-1qG" id="5EM-Mk-M5n"/>
                         <outlet property="titleLabel" destination="iUL-zS-NC2" id="5If-7E-quC"/>
+                        <segue destination="r9z-LS-Jjc" kind="show" identifier="homeToListSegue" id="pi1-Pv-8ex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985.49618320610682" y="-27.464788732394368"/>
+        </scene>
+        <!--Aldi Locations-->
+        <scene sceneID="dQc-Kt-rpV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vf-FW-PXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="r9z-LS-Jjc" customClass="PlaceListViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V66-EK-WPR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listplaces" translatesAutoresizingMaskIntoConstraints="NO" id="WgF-QR-UlT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A9D-Nc-D7r"/>
+                        <color key="backgroundColor" red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="leading" secondItem="V66-EK-WPR" secondAttribute="leading" id="5uj-9u-whA"/>
+                            <constraint firstItem="A9D-Nc-D7r" firstAttribute="trailing" secondItem="WgF-QR-UlT" secondAttribute="trailing" id="d5l-OR-rQ1"/>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="top" secondItem="V66-EK-WPR" secondAttribute="top" id="eIR-up-s7R"/>
+                            <constraint firstItem="A9D-Nc-D7r" firstAttribute="trailing" secondItem="WgF-QR-UlT" secondAttribute="trailing" id="feU-Ic-9TS"/>
+                            <constraint firstAttribute="bottom" secondItem="WgF-QR-UlT" secondAttribute="bottom" id="ky8-Au-TCQ"/>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="leading" secondItem="A9D-Nc-D7r" secondAttribute="leading" id="vQl-Mx-QUk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Locations" id="d6H-QW-oxt"/>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1736.6412213740457" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Epn-Ck-6zW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Aa-Lx-N3z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nJy-vm-5pF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="31"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ztN-iP-hij"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATe-dQ-JvU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="58.778625954198468" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
         <image name="homebgd" width="640" height="960"/>
+        <image name="listplaces" width="667.33331298828125" height="1000"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
