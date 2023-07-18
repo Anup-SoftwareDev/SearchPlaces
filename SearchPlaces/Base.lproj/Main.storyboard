@@ -156,20 +156,8 @@
                     <view key="view" contentMode="scaleToFill" id="GB9-1G-D6l">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2py-xy-QKw">
-                                <rect key="frame" x="168.66666666666666" y="413" width="56" height="26.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="wCg-rt-F6K"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="2py-xy-QKw" firstAttribute="centerY" secondItem="GB9-1G-D6l" secondAttribute="centerY" id="B1v-2d-6GZ"/>
-                            <constraint firstItem="2py-xy-QKw" firstAttribute="centerX" secondItem="GB9-1G-D6l" secondAttribute="centerX" id="Ib0-qQ-8cS"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Aldi Route" id="OvP-IS-W4n"/>
                 </viewController>

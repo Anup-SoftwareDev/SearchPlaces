@@ -16,7 +16,7 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "\(searchItem) Locations"
+        self.title = "\(searchItem) Locations"
         
         // Initialize the location manager
         locationManager = CLLocationManager()
