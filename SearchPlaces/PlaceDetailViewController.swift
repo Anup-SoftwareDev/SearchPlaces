@@ -1,14 +1,9 @@
-//
-//  PlaceDetailViewController.swift
-//  SearchPlaces
-//
-//  Created by Anup Kuriakose on 16/7/2023.
-//
+
 
 import UIKit
 
 class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+
     @IBOutlet weak var detailView: UIImageView!
     
     let imageView = UIImageView()
@@ -50,11 +45,13 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         routeButton.translatesAutoresizingMaskIntoConstraints = false
         routeButton.setTitle("Route", for: .normal)
         routeButton.backgroundColor = .gray
+        routeButton.addTarget(self, action: #selector(routeButtonTapped), for: .touchUpInside)
         self.view.addSubview(routeButton)
         
         photosButton.translatesAutoresizingMaskIntoConstraints = false
         photosButton.setTitle("Photos", for: .normal)
         photosButton.backgroundColor = .gray
+        photosButton.addTarget(self, action: #selector(photosButtonTapped), for: .touchUpInside)
         self.view.addSubview(photosButton)
         
         // Set up constraints
@@ -94,5 +91,12 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         return cell
     }
 
+    @objc func routeButtonTapped() {
+        performSegue(withIdentifier: "detailToRoute", sender: self)
+    }
+
+    @objc func photosButtonTapped() {
+        performSegue(withIdentifier: "detailToPhotos", sender: self)
+    }
 }
 

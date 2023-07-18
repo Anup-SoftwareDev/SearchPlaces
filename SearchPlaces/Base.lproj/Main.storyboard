@@ -110,12 +110,72 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Aldi Details" id="JdH-Y9-2X3">
-                        <barButtonItem key="backBarButtonItem" title=" " id="OEV-Cg-lka"/>
+                        <barButtonItem key="backBarButtonItem" title="  " id="OEV-Cg-lka"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="8Vi-EA-whg" kind="show" identifier="detailToRoute" id="rp3-MU-LWU"/>
+                        <segue destination="KeI-6r-Dgm" kind="show" identifier="detailToPhotos" id="n14-DB-7aQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nee-b6-6kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2468" y="-27"/>
+        </scene>
+        <!--Aldi Photos-->
+        <scene sceneID="HUK-fY-cn6">
+            <objects>
+                <viewController id="KeI-6r-Dgm" customClass="PlacePhotosViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="asV-jW-4qC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-Ft-feV">
+                                <rect key="frame" x="159" y="411" width="75.333333333333314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mky-cA-9eh"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerY" secondItem="asV-jW-4qC" secondAttribute="centerY" id="b7L-WI-0D6"/>
+                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerX" secondItem="asV-jW-4qC" secondAttribute="centerX" id="r3f-MI-Obp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Photos" id="sMK-Ka-vZw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D21-eA-bwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3383" y="407"/>
+        </scene>
+        <!--Aldi Route-->
+        <scene sceneID="L9y-9t-62U">
+            <objects>
+                <viewController id="8Vi-EA-whg" customClass="PlaceRouteViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GB9-1G-D6l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2py-xy-QKw">
+                                <rect key="frame" x="168.66666666666666" y="413" width="56" height="26.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wCg-rt-F6K"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2py-xy-QKw" firstAttribute="centerY" secondItem="GB9-1G-D6l" secondAttribute="centerY" id="B1v-2d-6GZ"/>
+                            <constraint firstItem="2py-xy-QKw" firstAttribute="centerX" secondItem="GB9-1G-D6l" secondAttribute="centerX" id="Ib0-qQ-8cS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Route" id="OvP-IS-W4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgq-hX-aVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3381" y="-238"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Epn-Ck-6zW">
