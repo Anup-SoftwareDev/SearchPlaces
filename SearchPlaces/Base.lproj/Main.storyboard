@@ -1,24 +1,199 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Aa-Lx-N3z">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homebgd" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-Yz-adu">
+                                <rect key="frame" x="0.0" y="-108" width="393" height="960"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search-A-Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUL-zS-NC2">
+                                <rect key="frame" x="50" y="155" width="293.33333333333331" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Eag-Nq-Iw7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Place Name" translatesAutoresizingMaskIntoConstraints="NO" id="KCg-Mx-1qG">
+                                <rect key="frame" x="40" y="255" width="313" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lv0-rF-vnd"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KCg-Mx-1qG" firstAttribute="top" secondItem="iUL-zS-NC2" secondAttribute="bottom" id="1ij-fO-VaC"/>
+                            <constraint firstItem="iUL-zS-NC2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5ai-hg-IRM"/>
+                            <constraint firstItem="iUL-zS-NC2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6o3-SQ-Vzc"/>
+                            <constraint firstItem="KCg-Mx-1qG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8yn-df-nZ4"/>
+                            <constraint firstAttribute="bottom" secondItem="djJ-Yz-adu" secondAttribute="bottom" id="FWw-gW-6bU"/>
+                            <constraint firstItem="djJ-Yz-adu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MFg-FJ-TAa"/>
+                            <constraint firstItem="KCg-Mx-1qG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="MYP-Iz-a1I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KCg-Mx-1qG" secondAttribute="trailing" constant="40" id="txr-hU-RDg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="djJ-Yz-adu" secondAttribute="trailing" id="wpQ-ll-Nc5"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yjy-JZ-tyt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="P9s-UY-cVE"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="KCg-Mx-1qG" id="5EM-Mk-M5n"/>
+                        <outlet property="titleLabel" destination="iUL-zS-NC2" id="5If-7E-quC"/>
+                        <segue destination="r9z-LS-Jjc" kind="show" identifier="homeToListSegue" id="pi1-Pv-8ex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="985.49618320610682" y="-27.464788732394368"/>
+        </scene>
+        <!--Aldi Locations-->
+        <scene sceneID="dQc-Kt-rpV">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vf-FW-PXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="r9z-LS-Jjc" customClass="PlaceListViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V66-EK-WPR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listplaces" translatesAutoresizingMaskIntoConstraints="NO" id="WgF-QR-UlT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A9D-Nc-D7r"/>
+                        <color key="backgroundColor" red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="leading" secondItem="V66-EK-WPR" secondAttribute="leading" id="5uj-9u-whA"/>
+                            <constraint firstItem="A9D-Nc-D7r" firstAttribute="trailing" secondItem="WgF-QR-UlT" secondAttribute="trailing" id="d5l-OR-rQ1"/>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="top" secondItem="V66-EK-WPR" secondAttribute="top" id="eIR-up-s7R"/>
+                            <constraint firstItem="A9D-Nc-D7r" firstAttribute="trailing" secondItem="WgF-QR-UlT" secondAttribute="trailing" id="feU-Ic-9TS"/>
+                            <constraint firstAttribute="bottom" secondItem="WgF-QR-UlT" secondAttribute="bottom" id="ky8-Au-TCQ"/>
+                            <constraint firstItem="WgF-QR-UlT" firstAttribute="leading" secondItem="A9D-Nc-D7r" secondAttribute="leading" id="vQl-Mx-QUk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Locations" id="d6H-QW-oxt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="LST-lo-Lm0"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8Kh-rC-CIZ" kind="show" identifier="listToDetailSegue" id="MYv-60-hU3"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1736.6412213740457" y="-27.464788732394368"/>
+        </scene>
+        <!--Aldi Details-->
+        <scene sceneID="J2M-fo-BLi">
+            <objects>
+                <viewController id="8Kh-rC-CIZ" customClass="PlaceDetailViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DH1-gV-1Se">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9OW-3X-ynO"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Details" id="JdH-Y9-2X3">
+                        <barButtonItem key="backBarButtonItem" title="  " id="OEV-Cg-lka"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="8Vi-EA-whg" kind="show" identifier="detailToRoute" id="rp3-MU-LWU"/>
+                        <segue destination="KeI-6r-Dgm" kind="show" identifier="detailToPhotos" id="n14-DB-7aQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nee-b6-6kh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2468" y="-27"/>
+        </scene>
+        <!--Aldi Photos-->
+        <scene sceneID="HUK-fY-cn6">
+            <objects>
+                <viewController id="KeI-6r-Dgm" customClass="PlacePhotosViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="asV-jW-4qC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-Ft-feV">
+                                <rect key="frame" x="159" y="411" width="75.333333333333314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mky-cA-9eh"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerY" secondItem="asV-jW-4qC" secondAttribute="centerY" id="b7L-WI-0D6"/>
+                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerX" secondItem="asV-jW-4qC" secondAttribute="centerX" id="r3f-MI-Obp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Photos" id="sMK-Ka-vZw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D21-eA-bwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3383" y="407"/>
+        </scene>
+        <!--Aldi Route-->
+        <scene sceneID="L9y-9t-62U">
+            <objects>
+                <viewController id="8Vi-EA-whg" customClass="PlaceRouteViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GB9-1G-D6l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wCg-rt-F6K"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Aldi Route" id="OvP-IS-W4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cgq-hX-aVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3381" y="-238"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Epn-Ck-6zW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Aa-Lx-N3z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nJy-vm-5pF">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="31"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ztN-iP-hij"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ATe-dQ-JvU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58.778625954198468" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homebgd" width="640" height="960"/>
+        <image name="listplaces" width="667.33331298828125" height="1000"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

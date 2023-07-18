@@ -13,6 +13,10 @@
 		CAFA0CA42A6342CA002C4DCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA22A6342CA002C4DCB /* Main.storyboard */; };
 		CAFA0CA62A6342CC002C4DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */; };
 		CAFA0CA92A6342CC002C4DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */; };
+		CAFA0CB12A637228002C4DCB /* PlaceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */; };
+		CAFA0CB32A63C688002C4DCB /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */; };
+		CAFA0CB52A661650002C4DCB /* PlaceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB42A661650002C4DCB /* PlaceRouteViewController.swift */; };
+		CAFA0CB72A661748002C4DCB /* PlacePhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAFA0CA82A6342CC002C4DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CAFA0CAA2A6342CC002C4DCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewController.swift; sourceTree = "<group>"; };
+		CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		CAFA0CB42A661650002C4DCB /* PlaceRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRouteViewController.swift; sourceTree = "<group>"; };
+		CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,10 @@
 				CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */,
 				CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */,
 				CAFA0CA02A6342CA002C4DCB /* ViewController.swift */,
+				CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */,
+				CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */,
+				CAFA0CB42A661650002C4DCB /* PlaceRouteViewController.swift */,
+				CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */,
 				CAFA0CA22A6342CA002C4DCB /* Main.storyboard */,
 				CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */,
 				CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */,
@@ -138,8 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAFA0CB12A637228002C4DCB /* PlaceListViewController.swift in Sources */,
+				CAFA0CB72A661748002C4DCB /* PlacePhotosViewController.swift in Sources */,
 				CAFA0CA12A6342CA002C4DCB /* ViewController.swift in Sources */,
+				CAFA0CB32A63C688002C4DCB /* PlaceDetailViewController.swift in Sources */,
 				CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */,
+				CAFA0CB52A661650002C4DCB /* PlaceRouteViewController.swift in Sources */,
 				CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,13 +301,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q94UG63NK9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchPlaces/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -313,13 +331,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q94UG63NK9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchPlaces/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
