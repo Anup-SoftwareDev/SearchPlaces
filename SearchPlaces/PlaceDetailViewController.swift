@@ -5,7 +5,7 @@ import UIKit
 class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var detailView: UIImageView!
-    
+    var searchItem = ""
     let imageView = UIImageView()
     let tableView = UITableView()
     let routeButton = UIButton()
@@ -23,6 +23,8 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "\(searchItem) Details"
         
         // Set up ImageView
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,5 +100,18 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @objc func photosButtonTapped() {
         performSegue(withIdentifier: "detailToPhotos", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailToPhotos" {
+            let placePhotoViewController = segue.destination as! PlacePhotosViewController
+            placePhotoViewController.searchItem = self.searchItem
+        }
+        if segue.identifier == "detailToRoute" {
+            let placeRouteViewController = segue.destination as! PlaceRouteViewController
+            print("search Item before Route:\(self.searchItem)")
+            placeRouteViewController.searchItem = self.searchItem
+        }
+    }
+
 }
 

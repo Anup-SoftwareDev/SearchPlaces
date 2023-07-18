@@ -3,7 +3,8 @@ import MapKit
 import CoreLocation
 
 class PlaceRouteViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
+    var searchItem = ""
     let mapView = MKMapView()
     let locationManager = CLLocationManager()
     let destinationCoordinate = CLLocationCoordinate2D(latitude: -37.65048567021611, longitude: 145.07059673810062)
@@ -13,7 +14,7 @@ class PlaceRouteViewController: UIViewController, MKMapViewDelegate, CLLocationM
         super.viewDidLoad()
 
         // Set title
-        self.title = "Route"
+        self.title = "\(searchItem) Route"
         
         // Setup info label
         infoLabel.textAlignment = .center

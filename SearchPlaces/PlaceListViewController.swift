@@ -166,18 +166,13 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
 
     // This method allows you to pass data to the new view controller before the segue happens
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Check the identifier of the segue so you don't mix up different segues
         if segue.identifier == "listToDetailSegue" {
-            // Get a reference to the new view controller
             let placeDetailViewController = segue.destination as! PlaceDetailViewController
-
-            // Pass data to the new view controller here.
-            // For example, if you want to pass the selected cell's text, you might do something like this:
             let indexPath = sender as! IndexPath
-            let cell = tableView.cellForRow(at: indexPath)
-            placeDetailViewController.title = cell?.textLabel?.text
+            placeDetailViewController.searchItem = placeNames[indexPath.row]
         }
     }
+
 }
 
 

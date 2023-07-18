@@ -4,9 +4,11 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
     
     var imageNames = ["homebgd", "listplaces", "globe", "listplaces", "homebgd", "globe"]  // Replace with your image names
     var collectionView: UICollectionView!
+    var searchItem = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "\(searchItem) Photos"
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)

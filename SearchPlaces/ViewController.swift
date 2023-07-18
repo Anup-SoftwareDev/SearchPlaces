@@ -48,12 +48,12 @@ class ViewController: UIViewController, UISearchBarDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeToListSegue",
-           let placeListViewController = segue.destination as? PlaceListViewController {
-            // Pass the searchItem to the PlaceListViewController
-            placeListViewController.searchItem = self.searchItem
+            if segue.identifier == "homeToListSegue",
+               let placeListViewController = segue.destination as? PlaceListViewController {
+                // Pass the searchItem to the PlaceListViewController
+                placeListViewController.searchItem = self.searchItem
+            }
         }
-    }
 
 
 }
