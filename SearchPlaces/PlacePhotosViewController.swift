@@ -101,7 +101,7 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
                             if self.placeImages.isEmpty {
-                                let alert = UIAlertController(title: "Alert", message: "No Photos found for \(self.searchItem)", preferredStyle: .alert)
+                                let alert = UIAlertController(title: "Alert", message: "A.No Photos found for \(self.searchItem)", preferredStyle: .alert)
                                                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                                                     self.present(alert, animated: true)
                                                 }
@@ -110,12 +110,22 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
                         print("Could not cast JSON to an array of [String: Any] dictionaries")
                         let jsonString = String(data: data, encoding: .utf8)
                         print("Raw JSON string: \(String(describing: jsonString))")
+                        let alert = UIAlertController(title: "Alert", message: "1.No Photos found for \(self.searchItem)", preferredStyle: .alert)
+                                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                            self.present(alert, animated: true)
+                        
                     }
                 } catch let error as NSError {
                     print("JSON parsing failed: \(error.localizedDescription)")
+                    let alert = UIAlertController(title: "Alert", message: "2.No Photos found for \(self.searchItem)", preferredStyle: .alert)
+                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                        self.present(alert, animated: true)
                 }
             } else {
                 print("No data and no error... something went wrong!")
+                let alert = UIAlertController(title: "Alert", message: "3.No Photos found for \(self.searchItem)", preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                    self.present(alert, animated: true)
             }
         })
 
