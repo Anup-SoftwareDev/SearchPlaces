@@ -1,7 +1,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import Kingfisher
+//import Kingfisher
 
 
 class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {

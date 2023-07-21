@@ -7,6 +7,6 @@ target 'SearchPlaces' do
 
   # Pods for SearchPlaces
   
-  pod 'Kingfisher'
+  # pod 'Kingfisher'
 
 end
