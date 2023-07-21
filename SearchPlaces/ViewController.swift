@@ -11,7 +11,8 @@ class ViewController: UIViewController, UISearchBarDelegate {
 
     //Outlets
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar: CustomSearchBar!
+    //@IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -22,6 +23,11 @@ class ViewController: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
         setupSearchBar()
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+               titleLabel.font = titleLabel.font.withSize(50)
+            searchBar.preferredHeight = 50.0
+           }
+        
     }
     
     func setupSearchBar() {
@@ -29,6 +35,13 @@ class ViewController: UIViewController, UISearchBarDelegate {
         searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search"
         searchBar.searchTextField.backgroundColor = .white
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+              //searchBar.searchTextField.translatesAutoresizingMaskIntoConstraints = false
+              NSLayoutConstraint.activate([
+                  searchBar.searchTextField.heightAnchor.constraint(equalToConstant: 60)
+              ])
+          }
         
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

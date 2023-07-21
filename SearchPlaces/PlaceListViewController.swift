@@ -72,7 +72,6 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let mapView = mapView else { return } // Safely unwrap mapView
-        print(didFetchPlaces)
         if let location = locations.first {
             if !didCenterMap {
                 let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -228,7 +227,13 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
         if segue.identifier == "listToDetailSegue" {
             let placeDetailViewController = segue.destination as! PlaceDetailViewController
             let indexPath = sender as! IndexPath
-            placeDetailViewController.searchItem = placeNames[indexPath.row]
+            if let name = placeListArray[indexPath.row]["name"] as? String {
+                placeDetailViewController.searchItem = name
+            } else {
+                print("Name not found")
+            }
+            print(placeListArray[indexPath.row])
+            placeDetailViewController.placeListArrayDetail = placeListArray[indexPath.row]
         }
     }
     
@@ -242,7 +247,7 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
         ]
 
         let limit = 11
-        var offset = 0
+        let offset = 0
         let latitude = currentLocation?.coordinate.latitude ?? 0
         let longitude = currentLocation?.coordinate.longitude ?? 0
 
@@ -305,12 +310,16 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
                                             }
                                         }
                             
-                            //print(self.placeListArray)
                         }
                     }
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        if self.placeListArray.isEmpty {
+                            let alert = UIAlertController(title: "Alert", message: "No Places found for \(self.searchItem)", preferredStyle: .alert)
+                                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                                self.present(alert, animated: true)
+                                            }
                     }
                 } catch let error as NSError {
                     print("Failed to load: \(error.localizedDescription)")
