@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Aa-Lx-N3z">
-    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <device id="ipad7_9" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,14 +13,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homebgd" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-Yz-adu">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search-A-Place" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUL-zS-NC2">
-                                <rect key="frame" x="365" y="126" width="294" height="101.5"/>
+                                <rect key="frame" x="419.5" y="126" width="294" height="101.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Eag-Nq-Iw7"/>
@@ -40,7 +40,7 @@
                                 </variation>
                             </label>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter Place Name" translatesAutoresizingMaskIntoConstraints="NO" id="KCg-Mx-1qG" customClass="CustomSearchBar" customModule="SearchPlaces" customModuleProvider="target">
-                                <rect key="frame" x="40" y="227.5" width="944" height="56"/>
+                                <rect key="frame" x="40" y="227.5" width="1053" height="56"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
@@ -78,11 +78,11 @@
             <objects>
                 <viewController id="r9z-LS-Jjc" customClass="PlaceListViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V66-EK-WPR">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listplaces" translatesAutoresizingMaskIntoConstraints="NO" id="WgF-QR-UlT">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A9D-Nc-D7r"/>
@@ -112,7 +112,7 @@
             <objects>
                 <viewController id="8Kh-rC-CIZ" customClass="PlaceDetailViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DH1-gV-1Se">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="9OW-3X-ynO"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -134,35 +134,101 @@
             <objects>
                 <viewController id="KeI-6r-Dgm" customClass="PlacePhotosViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="asV-jW-4qC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5M-Ft-feV">
-                                <rect key="frame" x="474.5" y="668" width="75" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Mky-cA-9eh"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerY" secondItem="asV-jW-4qC" secondAttribute="centerY" id="b7L-WI-0D6"/>
-                            <constraint firstItem="L5M-Ft-feV" firstAttribute="centerX" secondItem="asV-jW-4qC" secondAttribute="centerX" id="r3f-MI-Obp"/>
-                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Aldi Photos" id="sMK-Ka-vZw"/>
+                    <navigationItem key="navigationItem" title="Aldi Photos" id="sMK-Ka-vZw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ocW-W4-fAa"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="rcH-2f-1jf" kind="show" identifier="photosToPhotoDetail" id="qzI-3d-nDC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D21-eA-bwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3383" y="407"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="u8N-fG-9li">
+            <objects>
+                <viewController id="rcH-2f-1jf" customClass="PhotoDetailViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Soq-dd-U5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UFM-6y-2L7">
+                                <rect key="frame" x="216.5" y="146" width="700" height="550"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="700" id="C1G-Wk-BWh"/>
+                                    <constraint firstAttribute="height" constant="360" id="ak9-la-vNa"/>
+                                    <constraint firstAttribute="height" constant="550" id="tti-0q-D1t"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="C1G-Wk-BWh"/>
+                                        <exclude reference="ak9-la-vNa"/>
+                                        <exclude reference="tti-0q-D1t"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ak9-la-vNa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="C1G-Wk-BWh"/>
+                                        <include reference="tti-0q-D1t"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Tqa-ol-nmb"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UFM-6y-2L7" firstAttribute="top" secondItem="Tqa-ol-nmb" secondAttribute="top" constant="20" id="ONp-5M-6cS"/>
+                            <constraint firstItem="Tqa-ol-nmb" firstAttribute="trailing" secondItem="UFM-6y-2L7" secondAttribute="trailing" constant="20" id="PnC-1L-CgV"/>
+                            <constraint firstItem="UFM-6y-2L7" firstAttribute="centerX" secondItem="Soq-dd-U5Q" secondAttribute="centerX" id="mQF-nL-4fP"/>
+                            <constraint firstItem="UFM-6y-2L7" firstAttribute="leading" secondItem="Tqa-ol-nmb" secondAttribute="leading" constant="20" id="rRi-ll-sXs"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PnC-1L-CgV"/>
+                                <exclude reference="mQF-nL-4fP"/>
+                                <exclude reference="rRi-ll-sXs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="PnC-1L-CgV"/>
+                                <include reference="rRi-ll-sXs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="mQF-nL-4fP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="BMn-hh-FlO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="zfn-5l-62B"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="UFM-6y-2L7" id="yMJ-XU-uA0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z0I-YF-gSe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4135.8139534883721" y="406.86695278969961"/>
         </scene>
         <!--Aldi Route-->
         <scene sceneID="L9y-9t-62U">
             <objects>
                 <viewController id="8Vi-EA-whg" customClass="PlaceRouteViewController" customModule="SearchPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GB9-1G-D6l">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1133" height="744"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="wCg-rt-F6K"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -179,7 +245,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Aa-Lx-N3z" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="nJy-vm-5pF">
-                        <rect key="frame" x="0.0" y="24" width="1024" height="102"/>
+                        <rect key="frame" x="0.0" y="24" width="1133" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="largeTitleTextAttributes">

@@ -43,6 +43,12 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.placeImages.count
     }
+    
+    // MARK: - UICollectionViewDelegate methods
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "photosToPhotoDetail", sender: self.placeImages[indexPath.item])
+    }
+
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
@@ -68,6 +74,17 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
         }
 
         return cell
+    }
+    
+    // prepare(for:sender:) method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "photosToPhotoDetail" {
+            if let photoDetailViewController = segue.destination as? PhotoDetailViewController,
+               let selectedPhoto = sender as? [String: Any] {
+                photoDetailViewController.selectedPhoto = selectedPhoto
+                photoDetailViewController.searchItem = self.searchItem
+            }
+        }
     }
 
 
@@ -101,69 +118,43 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
                             if self.placeImages.isEmpty {
-                                let alert = UIAlertController(title: "Alert", message: "A.No Photos found for \(self.searchItem)", preferredStyle: .alert)
-                                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                                                    self.present(alert, animated: true)
+                                self.ErrorMessage()
                                                 }
                         }
                     } else {
                         print("Could not cast JSON to an array of [String: Any] dictionaries")
                         let jsonString = String(data: data, encoding: .utf8)
                         print("Raw JSON string: \(String(describing: jsonString))")
-                        let alert = UIAlertController(title: "Alert", message: "1.No Photos found for \(self.searchItem)", preferredStyle: .alert)
-                                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                                            self.present(alert, animated: true)
+                        self.ErrorMessage()
                         
                     }
-                } catch let error as NSError {
-                    print("JSON parsing failed: \(error.localizedDescription)")
-                    let alert = UIAlertController(title: "Alert", message: "2.No Photos found for \(self.searchItem)", preferredStyle: .alert)
-                                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                                        self.present(alert, animated: true)
+                } catch  let error as NSError {
+                    DispatchQueue.main.async {
+                        print("JSON parsing failed: \(error.localizedDescription)")
+                        self.ErrorMessage()
+                        return
+                    }
+
                 }
+                
             } else {
                 print("No data and no error... something went wrong!")
-                let alert = UIAlertController(title: "Alert", message: "3.No Photos found for \(self.searchItem)", preferredStyle: .alert)
-                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                                    self.present(alert, animated: true)
+                self.ErrorMessage()
             }
+            
+
         })
 
         dataTask.resume()
 
-        
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if let error = error {
-//                print("Error: \(error)")
-//            } else if let data = data {
-//                print("Received \(data.count) bytes of data")
-//                do {
-//                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]{
-//                        self.placeImages = jsonArray
-//                        print("placeImages in fetch: \(self.placeImages)")
-//                        //print(jsonArray.count)
-//                        // Now you can iterate over jsonArray to handle each individual object
-//                        for json in jsonArray {
-//
-//                           // print("JSON Object: \(json)")
-//                        }
-//                    } else {
-//                        print("Could not cast JSON to an array of [String: Any] dictionaries")
-//                        let jsonString = String(data: data, encoding: .utf8)
-//                        print("Raw JSON string: \(String(describing: jsonString))")
-//                    }
-//                } catch let error as NSError {
-//                    print("JSON parsing failed: \(error.localizedDescription)")
-//                }
-//            } else {
-//                print("No data and no error... something went wrong!")
-//            }
-//
-//        })
-//
-//        dataTask.resume()
-
     }
+    
+    func ErrorMessage() {
+        let alert = UIAlertController(title: "Message", message: "No Photos found for \(self.searchItem)", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                            self.present(alert, animated: true)
+    }
+    
 }
 
 

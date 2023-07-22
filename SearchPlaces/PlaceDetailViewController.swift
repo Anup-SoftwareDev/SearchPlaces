@@ -14,21 +14,14 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
     let photosButton = UIButton()
   
     var cellData: [(String, String)] = []
+    
+    var imageViewWidthConstraint: NSLayoutConstraint?
+    var imageViewHeightConstraint: NSLayoutConstraint?
 
-
-//    var cellData = [
-//        ("Category:", "Grocery Store"),
-//        ("Address:", "12 Long Street, Long Town, 3456"),
-//        ("Locality:", "Long Town"),
-//        ("PostCode:", "3456"),
-//        ("Region:", "QLD"),
-//        ("Distance","10km"),
-//        ("Latitude","-37.630654"),
-//        ("Longitude","145.0820098803975")
-//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        NotificationCenter.default.addObserver(self, selector: #selector(orientationChanged), name: UIDevice.orientationDidChangeNotification, object: nil)
         
         self.title = "\(searchItem) Details"
         
@@ -45,6 +38,9 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
                      let image = UIImage(data: data)
                      DispatchQueue.main.async {
                          self.imageView.image = image
+                         self.imageView.backgroundColor = UIColor.red
+
+
                      }
                  }
              }
@@ -80,29 +76,30 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         photosButton.addTarget(self, action: #selector(photosButtonTapped), for: .touchUpInside)
         self.view.addSubview(photosButton)
         
-        // Set up constraints
+        // Set up ImageView and constraints
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageViewWidthConstraint = imageView.widthAnchor.constraint(equalToConstant: 200)
+            imageViewHeightConstraint = imageView.heightAnchor.constraint(equalToConstant: 200)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 200),
-            imageView.heightAnchor.constraint(equalToConstant: 200),
-            
+            imageViewWidthConstraint!,
+            imageViewHeightConstraint!,
             tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
             routeButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 5),
             routeButton.widthAnchor.constraint(equalToConstant: 150),
             routeButton.heightAnchor.constraint(equalToConstant: 40),
             routeButton.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -2.5), // Spacing of 5 in between
             routeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            
             photosButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 5),
             photosButton.widthAnchor.constraint(equalToConstant: 150),
             photosButton.heightAnchor.constraint(equalToConstant: 40),
             photosButton.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 2.5), // Spacing of 5 in between
             photosButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+
         
         // Extracting place detail data from placeListArrayDetail and populating cellData
         let categoryName = placeListArrayDetail["categoryName"] as? String ?? "N/A"
@@ -121,9 +118,94 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
             ("Latitude", latitude),
             ("Longitude", longitude)
         ]
+        updateImageViewConstraints()
 
     }
+    
+    // Add this function to your class
+    func updateCellFont(cell: UITableViewCell) {
+        cell.textLabel?.numberOfLines = 0  // This allows the label to display an unlimited number of lines.
+        cell.textLabel?.lineBreakMode = .byWordWrapping  // This wraps the text within the label.
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if scene.interfaceOrientation.isPortrait {
+                    cell.textLabel?.font = UIFont.systemFont(ofSize: 30)
+                    cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 30)
+                    
 
+                   
+                } else {
+                    cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+                    cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
+                }
+            } else {
+                cell.textLabel?.font = UIFont.systemFont(ofSize: 17)
+                cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 17)
+            }
+        }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.tableView.reloadData()
+        }
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+//    @objc func orientationDidChange(_ notification: Notification) {
+//        tableView.reloadData()
+//    }
+    
+    @objc func orientationChanged(_ notification: Notification) {
+        updateImageViewConstraints()
+        updateFontSizeForVisibleCells()
+        //tableView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+            updateImageViewConstraints()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.updateFontSizeForVisibleCells()
+            }
+        
+    }
+    
+    // Add this function to your class
+    func updateFontSizeForVisibleCells() {
+        if let visibleIndexPaths = tableView.indexPathsForVisibleRows {
+            for indexPath in visibleIndexPaths {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    updateCellFont(cell: cell)
+                }
+            }
+        }
+    }
+
+    
+    
+    func updateImageViewConstraints() {
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                if scene.interfaceOrientation.isPortrait {
+                    self.imageViewWidthConstraint?.constant = 400
+                    self.imageViewHeightConstraint?.constant = 400
+                } else {
+                    self.imageViewWidthConstraint?.constant = 200
+                    self.imageViewHeightConstraint?.constant = 200
+                }
+            } else {
+                self.imageViewWidthConstraint?.constant = 200
+                self.imageViewHeightConstraint?.constant = 200
+            }
+            view.layoutIfNeeded()  // force the layout pass immediately
+        }
+    }
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,8 +217,12 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let (label1Text, label2Text) = cellData[indexPath.row]
         cell.textLabel?.text = label1Text
         cell.detailTextLabel?.text = label2Text
+        //updateFontSizeForVisibleCells()
+        updateCellFont(cell: cell)
+        
         return cell
     }
+    
 
     @objc func routeButtonTapped() {
         performSegue(withIdentifier: "detailToRoute", sender: self)

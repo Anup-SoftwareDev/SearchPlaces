@@ -25,6 +25,12 @@ class PlaceRouteViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Setup info label
         infoLabel.textAlignment = .center
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            infoLabel.font = UIFont.systemFont(ofSize: 30)
+        } else {
+            infoLabel.font = UIFont.systemFont(ofSize: 17)  // or whatever size you want for non-iPad devices
+        }
+
         if let latitude = Double(latitudeStr), let longitude = Double(longitudeStr) {
                     destinationCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
                 } else {
