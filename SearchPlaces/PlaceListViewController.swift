@@ -35,11 +35,11 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
         super.viewDidAppear(animated)
         print("It is in View Did Appear")
         
-//        locationManager = CLLocationManager()
-//        locationManager.delegate = self
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.startUpdatingLocation()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         didFetchPlaces = false
         placeListArray = []
