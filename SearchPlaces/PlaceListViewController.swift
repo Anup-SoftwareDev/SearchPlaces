@@ -22,7 +22,7 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(searchItem) Locations"
-       
+        print("It is in View Didload")
         // Initialize the location manager
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -33,6 +33,14 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("It is in View Did Appear")
+        
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+        
         didFetchPlaces = false
         placeListArray = []
         // Initialize the table view

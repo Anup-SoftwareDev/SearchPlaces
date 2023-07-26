@@ -31,18 +31,6 @@ class PhotoDetailViewController: UIViewController {
                             self.imageView.layer.cornerRadius = 10
                             self.imageView.layer.borderColor = UIColor.white.cgColor
 
-                            // If device is iPad, set the imageView height to 500 and set left and right margins
-//                            if UIDevice.current.userInterfaceIdiom == .pad {
-//                                //self.imageView.translatesAutoresizingMaskIntoConstraints = false
-//
-//                                self.imageView.translatesAutoresizingMaskIntoConstraints = false
-//                                NSLayoutConstraint.activate([
-//
-//                                    self.imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 100),
-//                                    self.imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -100),
-//                                    self.imageView.heightAnchor.constraint(equalToConstant: 2000)
-//                                ])
-//                            }
                         }
                     }
                 }

@@ -10,6 +10,7 @@
 		6446DBC16CDAE224172892F2 /* Pods_SearchPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3D7136DF5421EEAAA8E9D8 /* Pods_SearchPlaces.framework */; };
 		CACE06772A6A3B4B007C2C03 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */; };
 		CACE06792A6A9C08007C2C03 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */; };
+		CACE067B2A6D0AE8007C2C03 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */; };
 		CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */; };
 		CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */; };
 		CAFA0CA12A6342CA002C4DCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CA02A6342CA002C4DCB /* ViewController.swift */; };
@@ -26,7 +27,8 @@
 		1C3D7136DF5421EEAAA8E9D8 /* Pods_SearchPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		CAFA0C992A6342CA002C4DCB /* SearchPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		CAFA0C992A6342CA002C4DCB /* SearchAPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CAFA0CA02A6342CA002C4DCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 		CAFA0C9A2A6342CA002C4DCB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CAFA0C992A6342CA002C4DCB /* SearchPlaces.app */,
+				CAFA0C992A6342CA002C4DCB /* SearchAPlace.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,9 +95,10 @@
 				CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */,
 				CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */,
 				CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */,
+				CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */,
 				CAFA0CA22A6342CA002C4DCB /* Main.storyboard */,
-				CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */,
 				CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */,
+				CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */,
 				CAFA0CAA2A6342CC002C4DCB /* Info.plist */,
 			);
 			path = SearchPlaces;
@@ -112,9 +115,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CAFA0C982A6342CA002C4DCB /* SearchPlaces */ = {
+		CAFA0C982A6342CA002C4DCB /* SearchAPlace */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAFA0CAD2A6342CC002C4DCB /* Build configuration list for PBXNativeTarget "SearchPlaces" */;
+			buildConfigurationList = CAFA0CAD2A6342CC002C4DCB /* Build configuration list for PBXNativeTarget "SearchAPlace" */;
 			buildPhases = (
 				8D7156EECF8D2A8371281454 /* [CP] Check Pods Manifest.lock */,
 				CAFA0C952A6342CA002C4DCB /* Sources */,
@@ -125,9 +128,9 @@
 			);
 			dependencies = (
 			);
-			name = SearchPlaces;
+			name = SearchAPlace;
 			productName = SearchPlaces;
-			productReference = CAFA0C992A6342CA002C4DCB /* SearchPlaces.app */;
+			productReference = CAFA0C992A6342CA002C4DCB /* SearchAPlace.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -145,7 +148,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CAFA0C942A6342CA002C4DCB /* Build configuration list for PBXProject "SearchPlaces" */;
+			buildConfigurationList = CAFA0C942A6342CA002C4DCB /* Build configuration list for PBXProject "SearchAPlace" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -158,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CAFA0C982A6342CA002C4DCB /* SearchPlaces */,
+				CAFA0C982A6342CA002C4DCB /* SearchAPlace */,
 			);
 		};
 /* End PBXProject section */
@@ -213,6 +216,7 @@
 				CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */,
 				CAFA0CB52A661650002C4DCB /* PlaceRouteViewController.swift in Sources */,
 				CACE06792A6A9C08007C2C03 /* PhotoDetailViewController.swift in Sources */,
+				CACE067B2A6D0AE8007C2C03 /* ScrollViewController.swift in Sources */,
 				CACE06772A6A3B4B007C2C03 /* CustomSearchBar.swift in Sources */,
 				CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */,
 			);
@@ -366,10 +370,11 @@
 				DEVELOPMENT_TEAM = Q94UG63NK9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchPlaces/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SearchAPlace needs access to your location to identify places of interest near your current position. No location data is stored or shared";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -397,10 +402,11 @@
 				DEVELOPMENT_TEAM = Q94UG63NK9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SearchPlaces/Info.plist;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "SearchAPlace needs access to your location to identify places of interest near your current position. No location data is stored or shared";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -419,7 +425,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CAFA0C942A6342CA002C4DCB /* Build configuration list for PBXProject "SearchPlaces" */ = {
+		CAFA0C942A6342CA002C4DCB /* Build configuration list for PBXProject "SearchAPlace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAFA0CAB2A6342CC002C4DCB /* Debug */,
@@ -428,7 +434,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAFA0CAD2A6342CC002C4DCB /* Build configuration list for PBXNativeTarget "SearchPlaces" */ = {
+		CAFA0CAD2A6342CC002C4DCB /* Build configuration list for PBXNativeTarget "SearchAPlace" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAFA0CAE2A6342CC002C4DCB /* Debug */,
