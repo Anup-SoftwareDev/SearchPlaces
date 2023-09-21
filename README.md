@@ -1,5 +1,5 @@
 # SearchPlaces
-![Screenshot of the app](ReadmePics/SearchAPlaceFront.jpg)
+![Screenshot of the app](Readmepics/SearchAPlaceFront.jpg)
 
 ## App Links
 
