@@ -1,16 +1,14 @@
-# SearchPlaces
+# SearchAPlace
 ![Screenshot of the app](Readmepics/SearchAPlaceFront.jpg)
 
 ## App Links
 
-TestFlight: https://testflight.apple.com/join/tJebjWy0
-
-GitHub Backend: https://github.com/Anup-SoftwareDev/MyShopBackEnd
+App Store: [https://testflight.apple.com/join/tJebjWy0](https://apps.apple.com/au/app/searchaplace/id6452240296)
 
 ## Languages & Frameworks
 
-Swift / UiKit / Express / Ruby
+Swift / UiKit 
 
 ## App Description
 
-Developed using Swift with a primary focus on UIKit. Features include User authentication and user-related data storage using Firestore. Product exploration interface using Collection View.Cart functionality allowing users to add desired products.Payment simulation using Stripe with test card support.Utilised UIKit elements including Table View and Navigation Controllers.
+Developed using Swift with an emphasis on UIKit. Features: Enables users to search for nearby places based on their current location.Lists relevant places closest to the user with details like address,distance, route, and photos. Leverages the Foursquare API to fetch extensive placerelatedinformation. Integrates MapKit and Apple’s CoreLocation for map visualization androuting functionalities. Utilised UIKit elements including Table View, Navigation Controllers,and Collection Views.
