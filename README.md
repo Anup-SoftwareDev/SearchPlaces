@@ -1,5 +1,5 @@
 # SearchPlaces
-![Screenshot of the app](ReadmePics/MyShopFront.jpg)
+![Screenshot of the app](ReadmePics/SearchAPlaceFront.jpg)
 
 ## App Links
 
