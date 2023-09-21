@@ -1,6 +1,10 @@
 # SearchAPlace
 ![Screenshot of the app](Readmepics/SearchAPlaceFront.jpg)
 
+## Application Type
+
+iOS Mobile
+
 ## App Links
 
 App Store: https://apps.apple.com/au/app/searchaplace/id6452240296
