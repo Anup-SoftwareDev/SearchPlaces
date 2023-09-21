@@ -3,7 +3,7 @@
 
 ## Application Type
 
-iOS Mobile
+**iOS** Mobile
 
 ## App Links
 
