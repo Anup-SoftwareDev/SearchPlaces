@@ -73,12 +73,14 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
             center: location.coordinate,
             latitudinalMeters: 1000,
             longitudinalMeters: 1000)
+        
         mapView.setRegion(region, animated: true)
         
     }
 
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         guard let mapView = mapView else { return } // Safely unwrap mapView
         if let location = locations.first {
             if !didCenterMap {
