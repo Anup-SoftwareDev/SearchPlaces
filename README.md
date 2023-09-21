@@ -3,7 +3,7 @@
 
 ## App Links
 
-App Store: [https://testflight.apple.com/join/tJebjWy0](https://apps.apple.com/au/app/searchaplace/id6452240296)
+App Store: (https://apps.apple.com/au/app/searchaplace/id6452240296)
 
 ## Languages & Frameworks
 
