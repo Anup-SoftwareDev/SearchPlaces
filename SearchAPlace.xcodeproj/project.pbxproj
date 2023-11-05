@@ -10,10 +10,17 @@
 		6446DBC16CDAE224172892F2 /* Pods_SearchPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3D7136DF5421EEAAA8E9D8 /* Pods_SearchPlaces.framework */; };
 		CACE06772A6A3B4B007C2C03 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */; };
 		CACE06792A6A9C08007C2C03 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */; };
-		CACE067B2A6D0AE8007C2C03 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */; };
+		CAE329322AF5C8EF00116A10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329312AF5C8EF00116A10 /* HomeViewModel.swift */; };
+		CAE329342AF5D49400116A10 /* PlaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329332AF5D49400116A10 /* PlaceListViewModel.swift */; };
+		CAE329392AF6225F00116A10 /* FetchPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329382AF6225F00116A10 /* FetchPlaces.swift */; };
+		CAE3293D2AF7036A00116A10 /* PlaceListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3293C2AF7036A00116A10 /* PlaceListViewViewModel.swift */; };
+		CAE3293F2AF74B3500116A10 /* PlaceDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3293E2AF74B3500116A10 /* PlaceDetailModel.swift */; };
+		CAE329412AF74BDE00116A10 /* PlaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329402AF74BDE00116A10 /* PlaceDetailViewModel.swift */; };
+		CAE329432AF77DCC00116A10 /* PlacePhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329422AF77DCC00116A10 /* PlacePhotoModel.swift */; };
+		CAE329452AF77E3A00116A10 /* PlacePhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329442AF77E3A00116A10 /* PlacePhotosViewModel.swift */; };
 		CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */; };
 		CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */; };
-		CAFA0CA12A6342CA002C4DCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CA02A6342CA002C4DCB /* ViewController.swift */; };
+		CAFA0CA12A6342CA002C4DCB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CA02A6342CA002C4DCB /* HomeVC.swift */; };
 		CAFA0CA42A6342CA002C4DCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA22A6342CA002C4DCB /* Main.storyboard */; };
 		CAFA0CA62A6342CC002C4DCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */; };
 		CAFA0CA92A6342CC002C4DCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */; };
@@ -27,11 +34,18 @@
 		1C3D7136DF5421EEAAA8E9D8 /* Pods_SearchPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
-		CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		CAE329312AF5C8EF00116A10 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CAE329332AF5D49400116A10 /* PlaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewModel.swift; sourceTree = "<group>"; };
+		CAE329382AF6225F00116A10 /* FetchPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPlaces.swift; sourceTree = "<group>"; };
+		CAE3293C2AF7036A00116A10 /* PlaceListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewViewModel.swift; sourceTree = "<group>"; };
+		CAE3293E2AF74B3500116A10 /* PlaceDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailModel.swift; sourceTree = "<group>"; };
+		CAE329402AF74BDE00116A10 /* PlaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModel.swift; sourceTree = "<group>"; };
+		CAE329422AF77DCC00116A10 /* PlacePhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotoModel.swift; sourceTree = "<group>"; };
+		CAE329442AF77E3A00116A10 /* PlacePhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosViewModel.swift; sourceTree = "<group>"; };
 		CAFA0C992A6342CA002C4DCB /* SearchAPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CAFA0CA02A6342CA002C4DCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CAFA0CA02A6342CA002C4DCB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CAFA0CA32A6342CA002C4DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAFA0CA82A6342CC002C4DCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +79,47 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		CAE3292E2AF5C7EE00116A10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CAE3293E2AF74B3500116A10 /* PlaceDetailModel.swift */,
+				CAE329422AF77DCC00116A10 /* PlacePhotoModel.swift */,
+				CAE329332AF5D49400116A10 /* PlaceListViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CAE3292F2AF5C7FD00116A10 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CAE329312AF5C8EF00116A10 /* HomeViewModel.swift */,
+				CAE3293C2AF7036A00116A10 /* PlaceListViewViewModel.swift */,
+				CAE329402AF74BDE00116A10 /* PlaceDetailViewModel.swift */,
+				CAE329442AF77E3A00116A10 /* PlacePhotosViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CAE329302AF5C80E00116A10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */,
+				CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */,
+				CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */,
+				CAFA0CA02A6342CA002C4DCB /* HomeVC.swift */,
+				CAE329372AF6223200116A10 /* Extensions */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAE329372AF6223200116A10 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CAE329382AF6225F00116A10 /* FetchPlaces.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CAFA0C902A6342CA002C4DCB = {
 			isa = PBXGroup;
 			children = (
@@ -86,16 +141,14 @@
 		CAFA0C9B2A6342CA002C4DCB /* SearchPlaces */ = {
 			isa = PBXGroup;
 			children = (
+				CAE329302AF5C80E00116A10 /* View */,
+				CAE3292F2AF5C7FD00116A10 /* ViewModel */,
+				CAE3292E2AF5C7EE00116A10 /* Model */,
 				CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */,
 				CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */,
-				CAFA0CA02A6342CA002C4DCB /* ViewController.swift */,
-				CAFA0CB02A637228002C4DCB /* PlaceListViewController.swift */,
-				CAFA0CB22A63C688002C4DCB /* PlaceDetailViewController.swift */,
 				CAFA0CB42A661650002C4DCB /* PlaceRouteViewController.swift */,
-				CAFA0CB62A661748002C4DCB /* PlacePhotosViewController.swift */,
 				CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */,
 				CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */,
-				CACE067A2A6D0AE7007C2C03 /* ScrollViewController.swift */,
 				CAFA0CA22A6342CA002C4DCB /* Main.storyboard */,
 				CAFA0CA72A6342CC002C4DCB /* LaunchScreen.storyboard */,
 				CAFA0CA52A6342CC002C4DCB /* Assets.xcassets */,
@@ -209,15 +262,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAE329432AF77DCC00116A10 /* PlacePhotoModel.swift in Sources */,
 				CAFA0CB12A637228002C4DCB /* PlaceListViewController.swift in Sources */,
+				CAE329392AF6225F00116A10 /* FetchPlaces.swift in Sources */,
 				CAFA0CB72A661748002C4DCB /* PlacePhotosViewController.swift in Sources */,
-				CAFA0CA12A6342CA002C4DCB /* ViewController.swift in Sources */,
+				CAE329322AF5C8EF00116A10 /* HomeViewModel.swift in Sources */,
+				CAE329452AF77E3A00116A10 /* PlacePhotosViewModel.swift in Sources */,
+				CAFA0CA12A6342CA002C4DCB /* HomeVC.swift in Sources */,
+				CAE3293D2AF7036A00116A10 /* PlaceListViewViewModel.swift in Sources */,
 				CAFA0CB32A63C688002C4DCB /* PlaceDetailViewController.swift in Sources */,
 				CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */,
 				CAFA0CB52A661650002C4DCB /* PlaceRouteViewController.swift in Sources */,
 				CACE06792A6A9C08007C2C03 /* PhotoDetailViewController.swift in Sources */,
-				CACE067B2A6D0AE8007C2C03 /* ScrollViewController.swift in Sources */,
+				CAE329342AF5D49400116A10 /* PlaceListViewModel.swift in Sources */,
 				CACE06772A6A3B4B007C2C03 /* CustomSearchBar.swift in Sources */,
+				CAE329412AF74BDE00116A10 /* PlaceDetailViewModel.swift in Sources */,
+				CAE3293F2AF74B3500116A10 /* PlaceDetailModel.swift in Sources */,
 				CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

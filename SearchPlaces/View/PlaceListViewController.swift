@@ -1,7 +1,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-//import Kingfisher
 
 
 class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -13,7 +12,8 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     var currentLocation: CLLocation?
     var placeListArray: [Dictionary<String, Any>] = []
     var didCenterMap = false
-    
+    //private var viewModel = PlaceListViewModel()
+    private var viewModel = PlaceListViewViewModel()
     // Sample data
     let placeNames = Array(repeating: "Place", count: 10)
     let suburbNames = Array(repeating: "Suburb", count: 10)
@@ -22,7 +22,6 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "\(searchItem) Locations"
-        print("It is in View Didload")
         // Initialize the location manager
         locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -50,18 +49,13 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         self.view.addSubview(tableView)
-
         // Get the height of the navigation bar and status bar
         let topBarHeight = self.view.safeAreaInsets.top
-        
         // Initialize the map view
         mapView = MKMapView(frame: CGRect(x: 0, y: topBarHeight, width: self.view.frame.size.width, height: tableView.frame.origin.y - topBarHeight))
-        
         self.view.addSubview(mapView)
-     
         // Center the map
         centerMapOnCurrentLocation()
-        
         locationManager.startUpdatingLocation()
        
     }
@@ -94,7 +88,7 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
             }
             
             if !didFetchPlaces {
-                fetchPlaces()
+                updateUIWithPlaces()
                 didFetchPlaces = true
             }
         }
@@ -110,17 +104,17 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
         mapView.addAnnotation(annotation)
     }
     
-    func addAnnotationForPlace(placeDict: [String: Any]) {
-            guard let latitude = placeDict["latitude"] as? CLLocationDegrees,
-                let longitude = placeDict["longitude"] as? CLLocationDegrees else {
-                return
-            }
-            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = coordinate
-            annotation.title = placeDict["name"] as? String
-            mapView.addAnnotation(annotation)
+    func addAnnotationForPlace(place: Place) {
+        guard let latitude = place.latitude,
+              let longitude = place.longitude else {
+            return
         }
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = place.name
+        mapView.addAnnotation(annotation)
+    }
     
     func regionForAnnotations() -> MKCoordinateRegion? {
         guard !mapView.annotations.isEmpty else { return nil }
@@ -233,111 +227,81 @@ class PlaceListViewController: UIViewController, CLLocationManagerDelegate, UITa
     }
 
     // This method allows you to pass data to the new view controller before the segue happens
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "listToDetailSegue" {
+//            let placeDetailViewController = segue.destination as! PlaceDetailViewController
+//            let indexPath = sender as! IndexPath
+//            if let name = placeListArray[indexPath.row]["name"] as? String {
+//                placeDetailViewController.searchItem = name
+//            } else {
+//                print("Name not found")
+//            }
+//            print(placeListArray[indexPath.row])
+//            placeDetailViewController.placeListArrayDetail = placeListArray[indexPath.row]
+//        }
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "listToDetailSegue" {
             let placeDetailViewController = segue.destination as! PlaceDetailViewController
             let indexPath = sender as! IndexPath
-            if let name = placeListArray[indexPath.row]["name"] as? String {
+            let detailData = placeListArray[indexPath.row]
+
+            if let name = detailData["name"] as? String {
                 placeDetailViewController.searchItem = name
             } else {
                 print("Name not found")
             }
-            print(placeListArray[indexPath.row])
+
+            // Create a PlaceDetail instance without conditional binding.
+            let placeDetail = PlaceDetail(
+                iconPrefix: detailData["iconPrefix"] as? String ?? "",
+                iconSuffix: detailData["iconSuffix"] as? String ?? "",
+                categoryName: detailData["categoryName"] as? String ?? "",
+                address: detailData["address"] as? String ?? "",
+                region: detailData["region"] as? String ?? "",
+                distance: detailData["distance"] as? Double ?? 0.0,
+                latitude: detailData["latitude"] as? Double ?? 0.0,
+                longitude: detailData["longitude"] as? Double ?? 0.0
+                )
+            
+            let viewModel = PlaceDetailViewModel(detail: placeDetail)
+            placeDetailViewController.viewModel = viewModel
             placeDetailViewController.placeListArrayDetail = placeListArray[indexPath.row]
         }
     }
-    
-    
-    func fetchPlaces() {
-        print("it is in fetch places")
-        
-        let headers = [
-            "accept": "application/json",
-            "Authorization": "fsq30DgtIq+UgKbZuc/qp6FBAAFSInBaxmhfo3qHxb0ylUI="
-        ]
 
-        let limit = 11
-        let offset = 0
-        let latitude = currentLocation?.coordinate.latitude ?? 0
-        let longitude = currentLocation?.coordinate.longitude ?? 0
 
-        let urlString = "https://api.foursquare.com/v3/places/search?query=\(searchItem.replacingOccurrences(of: " ", with: ""))&limit=\(limit)&offset=\(offset)&ll=\(latitude),\(longitude)"
-
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-
-        let request = NSMutableURLRequest(url: url,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if let error = error {
-                print(error)
-            } else if let data = data {
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                       let results = json["results"] as? [[String: Any]] {
-                        
-                        //for (index, result) in results.enumerated() {
-                        for result in results {
-                        var placeDict = [String: Any]()
-                            
-                            if let categories = result["categories"] as? [NSDictionary],
-                               let firstCategory = categories.first {
-                                placeDict["iconPrefix"] = firstCategory.value(forKeyPath: "icon.prefix")
-                                placeDict["iconSuffix"] = firstCategory.value(forKeyPath: "icon.suffix")
-                                placeDict["categoryName"] = firstCategory["name"]
+        func updateUIWithPlaces() {
+            viewModel.fetchPlaces(searchItem: searchItem, currentLocation: currentLocation) { success in
+            
+                if success {
+                    if self.viewModel.places.isEmpty {
+                        self.noPlacesAlert(searchItem: "\(self.searchItem)")
+                    }else {
+                        let places = self.viewModel.places
+                        self.placeListArray = self.viewModel.convertToArrayOfDictionaries()
+                        DispatchQueue.main.async {
+                            for place in places {
+                                self.updateMapViewWithPlace(place: place)
                             }
-
-                            placeDict["distance"] = result["distance"]
-                            placeDict["fsqId"] = result["fsq_id"]
-                            
-                            if let geocodes = result["geocodes"] as? NSDictionary,
-                               let main = geocodes["main"] as? NSDictionary {
-                                placeDict["latitude"] = main["latitude"]
-                                placeDict["longitude"] = main["longitude"]
-                            }
-
-                            if let location = result["location"] as? NSDictionary {
-                                placeDict["address"] = location["address"]
-                                placeDict["postcode"] = location["postcode"]
-                                placeDict["region"] = location["region"]
-                            }
-
-                            placeDict["name"] = result["name"]
-
-                            self.placeListArray.append(placeDict)
-                            //
-                            self.addAnnotationForPlace(placeDict: placeDict) // Modify this line
-                            if let region = self.regionForAnnotations() {
-                                            DispatchQueue.main.async {
-                                                self.mapView.setRegion(region, animated: true)
-                                            }
-                                        }
-                            
+                            self.tableView.reloadData()
                         }
+                    }}else {
+                        self.noPlacesAlert(searchItem: "\(self.searchItem)")
                     }
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        if self.placeListArray.isEmpty {
-                            let alert = UIAlertController(title: "Alert", message: "No Places found for \(self.searchItem)", preferredStyle: .alert)
-                                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                                                self.present(alert, animated: true)
-                                            }
-                    }
-                } catch let error as NSError {
-                    print("Failed to load: \(error.localizedDescription)")
-                }
             }
-        })
-
-        dataTask.resume()
+        }
+ 
+    func updateMapViewWithPlace(place: Place) {
+        self.addAnnotationForPlace(place: place)
+        
+        if let region = self.regionForAnnotations() {
+            DispatchQueue.main.async {
+                self.mapView.setRegion(region, animated: true)
+            }
+        }
     }
-
+ 
+   
 }
