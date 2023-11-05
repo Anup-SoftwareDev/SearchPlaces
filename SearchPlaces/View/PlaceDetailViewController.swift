@@ -17,7 +17,7 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     var imageViewWidthConstraint: NSLayoutConstraint?
     var imageViewHeightConstraint: NSLayoutConstraint?
-
+    var viewModel: PlaceDetailViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +26,12 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.title = "\(searchItem) Details"
         
         // Set up ImageView
-        let prefix = placeListArrayDetail["iconPrefix"] as? String ?? "N/A"
-        let suffix = placeListArrayDetail["iconSuffix"] as? String ?? "N/A"
-       
-
-         let iconURL = URL(string: prefix + "100" + suffix)
+//        let prefix = placeListArrayDetail["iconPrefix"] as? String ?? "N/A"
+//        let suffix = placeListArrayDetail["iconSuffix"] as? String ?? "N/A"
+//
+//
+//         let iconURL = URL(string: prefix + "100" + suffix)
+        let iconURL = viewModel.iconURL
          if let imageURL = iconURL {
              DispatchQueue.global().async {
                  let data = try? Data(contentsOf: imageURL)
@@ -102,22 +103,24 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
         
         // Extracting place detail data from placeListArrayDetail and populating cellData
-        let categoryName = placeListArrayDetail["categoryName"] as? String ?? "N/A"
-        let address = placeListArrayDetail["address"] as? String ?? "N/A"
-        let region = placeListArrayDetail["region"] as? String ?? "N/A"
-        let distanceMeters = placeListArrayDetail["distance"] as? Double
-        let distance = distanceMeters.map { String(format: "%.1f km", $0 / 1000) } ?? "N/A" // converted to km
-        let latitude = (placeListArrayDetail["latitude"] as? Double).map { "\($0)" } ?? "N/A"
-        let longitude = (placeListArrayDetail["longitude"] as? Double).map { "\($0)" } ?? "N/A"
-
-        cellData = [
-            ("Category:", categoryName),
-            ("Address:", address),
-            ("Region:", region),
-            ("Distance", distance),
-            ("Latitude", latitude),
-            ("Longitude", longitude)
-        ]
+//        let categoryName = placeListArrayDetail["categoryName"] as? String ?? "N/A"
+//
+//        let address = placeListArrayDetail["address"] as? String ?? "N/A"
+//        let region = placeListArrayDetail["region"] as? String ?? "N/A"
+//        let distanceMeters = placeListArrayDetail["distance"] as? Double
+//        let distance = distanceMeters.map { String(format: "%.1f km", $0 / 1000) } ?? "N/A" // converted to km
+//        let latitude = (placeListArrayDetail["latitude"] as? Double).map { "\($0)" } ?? "N/A"
+//        let longitude = (placeListArrayDetail["longitude"] as? Double).map { "\($0)" } ?? "N/A"
+//
+//        cellData = [
+//            ("Category:", categoryName),
+//            ("Address:", address),
+//            ("Region:", region),
+//            ("Distance", distance),
+//            ("Latitude", latitude),
+//            ("Longitude", longitude)
+//        ]
+        cellData = viewModel.cellData
         updateImageViewConstraints()
 
     }
@@ -157,9 +160,7 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-//    @objc func orientationDidChange(_ notification: Notification) {
-//        tableView.reloadData()
-//    }
+
     
     @objc func orientationChanged(_ notification: Notification) {
         updateImageViewConstraints()
@@ -235,9 +236,9 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailToPhotos" {
             let placePhotoViewController = segue.destination as! PlacePhotosViewController
-            placePhotoViewController.searchItem = self.searchItem
+            placePhotoViewController.viewModel.searchItem = self.searchItem
             if let fourSquareId = placeListArrayDetail["fsqId"] as? String{
-                placePhotoViewController.fourSquareId = fourSquareId
+                placePhotoViewController.viewModel.fourSquareId = fourSquareId
             }
         }
         if segue.identifier == "detailToRoute" {

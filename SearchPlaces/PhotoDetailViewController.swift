@@ -4,7 +4,8 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
-    var selectedPhoto: [String: Any]?
+    //var selectedPhoto: [String: Any]?
+    var selectedPhoto: PlacePhoto?
     var searchItem = ""
 
     override func viewDidLoad() {
@@ -12,10 +13,10 @@ class PhotoDetailViewController: UIViewController {
         self.title = "\(searchItem) Photo"
         
         if let selectedPhoto = self.selectedPhoto {
-            print("Selectedphoto: \(selectedPhoto)")
+           
 
-            let prefix = selectedPhoto["prefix"] as? String ?? "N/A"
-            let suffix = selectedPhoto["suffix"] as? String ?? "N/A"
+            let prefix = selectedPhoto.prefix
+            let suffix = selectedPhoto.suffix
             
             let joinURL = URL(string: prefix + "200" + suffix)
             if let imageURL = joinURL {
