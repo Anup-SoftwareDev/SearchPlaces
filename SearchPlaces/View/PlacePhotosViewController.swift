@@ -66,11 +66,8 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         cell.backgroundView = imageView
-        let imageDict = self.viewModel.placeImages[indexPath.item]
-        let prefix = imageDict.prefix
-        let suffix = imageDict.suffix
-        let imageURLString = prefix + "200" + suffix
-        if let url = URL(string: imageURLString) {
+        if let imageURLString = viewModel.imageURLString(for: indexPath),
+           let url = URL(string: imageURLString) {
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
@@ -87,59 +84,16 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "photosToPhotoDetail" {
             if let photoDetailViewController = segue.destination as? PhotoDetailViewController,
-               //let selectedPhoto = sender as? [String: Any] {
                let selectedPhoto = sender as? PlacePhoto {
                 print(selectedPhoto)
-                photoDetailViewController.selectedPhoto = selectedPhoto
-                photoDetailViewController.searchItem = viewModel.searchItem
+                photoDetailViewController.viewModel = PhotoDetailViewModel()
+                photoDetailViewController.viewModel.selectedPhoto = selectedPhoto
+                photoDetailViewController.viewModel.searchItem = viewModel.searchItem
                 
             }
         }
     }
 
-
-//    func fetchPhotos() {
-//
-//        guard let request = viewModel.setUpHttpPhotosRequest() else {return}
-//        let session = URLSession.shared
-//
-//        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-//            if let error = error {
-//                print("Error: \(error)")
-//            } else if let data = data {
-//
-//                do {
-//                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]{
-//                        self.placeImages = jsonArray
-//                        self.displayFetchedPhotos()
-//
-//                    } else {
-//                        print("Could not cast JSON to an array of [String: Any] dictionaries")
-//                        let jsonString = String(data: data, encoding: .utf8)
-//                        print("Raw JSON string: \(String(describing: jsonString))")
-//                        self.ErrorMessage()
-//
-//                    }
-//                } catch  let error as NSError {
-//                    DispatchQueue.main.async {
-//                        print("JSON parsing failed: \(error.localizedDescription)")
-//                        self.ErrorMessage()
-//                        return
-//                    }
-//
-//                }
-//
-//            } else {
-//                print("No data and no error... something went wrong!")
-//                self.ErrorMessage()
-//            }
-//
-//
-//        })
-//
-//        dataTask.resume()
-//
-//    }
 
     func ErrorMessage() {
         let alert = UIAlertController(title: "Message", message: "No Photos found for \(viewModel.searchItem)", preferredStyle: .alert)

@@ -7,8 +7,6 @@ class ViewController: UIViewController, UISearchBarDelegate {
     // Outlets
     @IBOutlet weak var searchBar: CustomSearchBar!
     @IBOutlet weak var titleLabel: UILabel!
-    var searchItem = ""
-    // Instantiate the ViewModel
     private var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -16,11 +14,13 @@ class ViewController: UIViewController, UISearchBarDelegate {
         
         setupSearchBar()
         
-        viewModel.searchItemDidChange = { [weak self] item in
-            print("Search text is now: \(item)")
-            self?.searchItem = item
-        }
         
+        viewModel.searchItemDidChange = { [weak self] item in
+            if self?.viewModel.searchItem != item {
+                self?.viewModel.searchItem = item
+            }
+        }
+
         if UIDevice.current.userInterfaceIdiom == .pad {
             titleLabel.font = titleLabel.font.withSize(50)
             searchBar.preferredHeight = 50.0

@@ -241,14 +241,39 @@ class PlaceDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 placePhotoViewController.viewModel.fourSquareId = fourSquareId
             }
         }
+        
+//        if segue.identifier == "detailToRoute" {
+//            let placeRouteViewController = segue.destination as! PlaceRouteViewController
+//            placeRouteViewController.viewModel = PlaceRouteViewModel()
+//            print("search Item before Route:\(self.searchItem)")
+//            placeRouteViewController.searchItem = self.searchItem
+//            if let latitude = placeListArrayDetail["latitude"] as? Double,
+//               let longitude = placeListArrayDetail["longitude"] as? Double {
+//                placeRouteViewController.latitudeStr = String(latitude)
+//                placeRouteViewController.longitudeStr = String(longitude)
+//            } else {
+//                print("Error: unable to convert latitude and/or longitude to String")
+//            }
+//        }
         if segue.identifier == "detailToRoute" {
             let placeRouteViewController = segue.destination as! PlaceRouteViewController
             print("search Item before Route:\(self.searchItem)")
             placeRouteViewController.searchItem = self.searchItem
+            
             if let latitude = placeListArrayDetail["latitude"] as? Double,
                let longitude = placeListArrayDetail["longitude"] as? Double {
+                
                 placeRouteViewController.latitudeStr = String(latitude)
                 placeRouteViewController.longitudeStr = String(longitude)
+                
+                // Create a PlaceRoute object
+                let place = PlaceRoute(latitude: latitude, longitude: longitude, name: self.searchItem)
+                
+                // Create a PlaceRouteViewModel using the PlaceRoute object
+                let viewModel = PlaceRouteViewModel(place: place)
+                
+                // Assign the view model to the PlaceRouteViewController
+                placeRouteViewController.viewModel = viewModel
             } else {
                 print("Error: unable to convert latitude and/or longitude to String")
             }
