@@ -1,9 +1,4 @@
-//
-//  PlaceListViewViewModel.swift
-//  SearchAPlace
-//
-//  Created by Anup Kuriakose on 5/11/2023.
-//
+
 
 import UIKit
 import MapKit

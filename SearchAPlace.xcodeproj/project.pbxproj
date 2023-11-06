@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		10F9541E9E175DD646A92AFD /* Pods_SearchAPlace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98EAF7B4B3C5921726F740E5 /* Pods_SearchAPlace.framework */; };
 		B7846CA9F3ED5CD9424E26C0 /* Pods_SearchAPlaceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1340877003F7F9CF40004AE2 /* Pods_SearchAPlaceTests.framework */; };
+		CA074AEE2AF8A805008CE691 /* HomeViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AED2AF8A805008CE691 /* HomeViewModelSpec.swift */; };
+		CA074AF02AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AEF2AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift */; };
+		CA074AF22AF8B53F008CE691 /* PlaceDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AF12AF8B53F008CE691 /* PlaceDetailViewModelTests.swift */; };
+		CA074AF42AF8B61C008CE691 /* PlacePhotosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AF32AF8B61C008CE691 /* PlacePhotosViewModelTests.swift */; };
+		CA074AF62AF8BA4D008CE691 /* PlaceRouteViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AF52AF8BA4D008CE691 /* PlaceRouteViewModelTests.swift */; };
+		CA074AF82AF8BC10008CE691 /* PhotoDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA074AF72AF8BC10008CE691 /* PhotoDetailViewModelTests.swift */; };
 		CACE06772A6A3B4B007C2C03 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */; };
 		CACE06792A6A9C08007C2C03 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */; };
 		CAE329322AF5C8EF00116A10 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329312AF5C8EF00116A10 /* HomeViewModel.swift */; };
@@ -52,6 +58,12 @@
 		9345AB398E980DDC62249886 /* Pods-SearchAPlaceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAPlaceTests.release.xcconfig"; path = "Target Support Files/Pods-SearchAPlaceTests/Pods-SearchAPlaceTests.release.xcconfig"; sourceTree = "<group>"; };
 		97994CDF89C974ECD4CF83B9 /* Pods-SearchAPlace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchAPlace.release.xcconfig"; path = "Target Support Files/Pods-SearchAPlace/Pods-SearchAPlace.release.xcconfig"; sourceTree = "<group>"; };
 		98EAF7B4B3C5921726F740E5 /* Pods_SearchAPlace.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchAPlace.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA074AED2AF8A805008CE691 /* HomeViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelSpec.swift; sourceTree = "<group>"; };
+		CA074AEF2AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListViewViewModelSpec.swift; sourceTree = "<group>"; };
+		CA074AF12AF8B53F008CE691 /* PlaceDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewModelTests.swift; sourceTree = "<group>"; };
+		CA074AF32AF8B61C008CE691 /* PlacePhotosViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacePhotosViewModelTests.swift; sourceTree = "<group>"; };
+		CA074AF52AF8BA4D008CE691 /* PlaceRouteViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRouteViewModelTests.swift; sourceTree = "<group>"; };
+		CA074AF72AF8BC10008CE691 /* PhotoDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModelTests.swift; sourceTree = "<group>"; };
 		CACE06762A6A3B4B007C2C03 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		CACE06782A6A9C08007C2C03 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		CAE329312AF5C8EF00116A10 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -166,6 +178,12 @@
 			isa = PBXGroup;
 			children = (
 				CAE329522AF891DE00116A10 /* SearchAPlaceTests.swift */,
+				CA074AED2AF8A805008CE691 /* HomeViewModelSpec.swift */,
+				CA074AEF2AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift */,
+				CA074AF12AF8B53F008CE691 /* PlaceDetailViewModelTests.swift */,
+				CA074AF32AF8B61C008CE691 /* PlacePhotosViewModelTests.swift */,
+				CA074AF52AF8BA4D008CE691 /* PlaceRouteViewModelTests.swift */,
+				CA074AF72AF8BC10008CE691 /* PhotoDetailViewModelTests.swift */,
 			);
 			path = SearchAPlaceTests;
 			sourceTree = "<group>";
@@ -384,6 +402,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA074AF42AF8B61C008CE691 /* PlacePhotosViewModelTests.swift in Sources */,
+				CA074AEE2AF8A805008CE691 /* HomeViewModelSpec.swift in Sources */,
+				CA074AF62AF8BA4D008CE691 /* PlaceRouteViewModelTests.swift in Sources */,
+				CA074AF22AF8B53F008CE691 /* PlaceDetailViewModelTests.swift in Sources */,
+				CA074AF02AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift in Sources */,
+				CA074AF82AF8BC10008CE691 /* PhotoDetailViewModelTests.swift in Sources */,
 				CAE329532AF891DE00116A10 /* SearchAPlaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

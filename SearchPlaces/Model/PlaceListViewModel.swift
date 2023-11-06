@@ -47,3 +47,19 @@ struct Place {
         self.name = dict["name"] as? String
     }
 }
+
+extension Place {
+    init(iconPrefix: String, iconSuffix: String, categoryName: String, distance: Double, fsqId: String, latitude: Double, longitude: Double, address: String, postcode: String, region: String, name: String) {
+        self.iconPrefix = iconPrefix
+        self.iconSuffix = iconSuffix
+        self.categoryName = categoryName
+        self.distance = distance
+        self.fsqId = fsqId
+        self.latitude = latitude
+        self.longitude = longitude
+        self.address = address
+        self.postcode = postcode
+        self.region = region
+        self.name = name
+    }
+}
