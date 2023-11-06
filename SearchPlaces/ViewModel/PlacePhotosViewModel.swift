@@ -68,5 +68,13 @@ class PlacePhotosViewModel {
         request.allHTTPHeaderFields = headers
         return request
     }
-}
+    
+    func imageURLString(for indexPath: IndexPath) -> String? {
+        guard indexPath.item < placeImages.count else { return nil }
+
+        let imageDict = placeImages[indexPath.item]
+        let prefix = imageDict.prefix
+        let suffix = imageDict.suffix
+        return prefix + "200" + suffix
+    }}
 
