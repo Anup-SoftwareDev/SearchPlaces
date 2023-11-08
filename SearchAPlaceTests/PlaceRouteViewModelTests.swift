@@ -27,13 +27,10 @@ class PlaceRouteViewModelTests: QuickSpec {
                         // Set properties for mockRoute like mockRoute.distance or mockRoute.expectedTravelTime if they are mutable
 
                         // Mock the MKDirections to return the mockRoute
-                        // You might need to use dependency injection or a mocking framework for this.
-
                         viewModel.fetchRouteDetails(from: mockLocation) { (route, error) in
                             expect(error).to(beNil())
                             expect(route).toNot(beNil())
                             expect(viewModel.infoText).toNot(beNil())
-                            // You can further validate the content of viewModel.infoText if you wish
                         }
                     }
                 }
@@ -43,7 +40,6 @@ class PlaceRouteViewModelTests: QuickSpec {
                         let mockLocation = CLLocation(latitude: 40.1, longitude: 50.1)
                         
                         // Mock the MKDirections to return no routes
-                        // You might need to use dependency injection or a mocking framework for this.
 
                         viewModel.fetchRouteDetails(from: mockLocation) { (route, error) in
                             expect(error).toNot(beNil())
@@ -52,8 +48,6 @@ class PlaceRouteViewModelTests: QuickSpec {
                         }
                     }
                 }
-
-                // You can add other contexts such as when an unexpected error occurs, etc.
             }
         }
     }

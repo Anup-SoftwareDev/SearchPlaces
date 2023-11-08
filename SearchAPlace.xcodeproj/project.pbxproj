@@ -35,7 +35,6 @@
 		CAE329472AF85E3500116A10 /* PlaceRouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329462AF85E3500116A10 /* PlaceRouteModel.swift */; };
 		CAE329492AF85E6800116A10 /* PlaceRouteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329482AF85E6800116A10 /* PlaceRouteViewModel.swift */; };
 		CAE3294B2AF87ACD00116A10 /* PhotoDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE3294A2AF87ACD00116A10 /* PhotoDetailViewModel.swift */; };
-		CAE329532AF891DE00116A10 /* SearchAPlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE329522AF891DE00116A10 /* SearchAPlaceTests.swift */; };
 		CAFA0C9D2A6342CA002C4DCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */; };
 		CAFA0C9F2A6342CA002C4DCB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */; };
 		CAFA0CA12A6342CA002C4DCB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAFA0CA02A6342CA002C4DCB /* HomeVC.swift */; };
@@ -92,7 +91,6 @@
 		CAE329482AF85E6800116A10 /* PlaceRouteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRouteViewModel.swift; sourceTree = "<group>"; };
 		CAE3294A2AF87ACD00116A10 /* PhotoDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewModel.swift; sourceTree = "<group>"; };
 		CAE329502AF891DE00116A10 /* SearchAPlaceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchAPlaceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAE329522AF891DE00116A10 /* SearchAPlaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPlaceTests.swift; sourceTree = "<group>"; };
 		CAFA0C992A6342CA002C4DCB /* SearchAPlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchAPlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAFA0C9C2A6342CA002C4DCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAFA0C9E2A6342CA002C4DCB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		CAE329512AF891DE00116A10 /* SearchAPlaceTests */ = {
 			isa = PBXGroup;
 			children = (
-				CAE329522AF891DE00116A10 /* SearchAPlaceTests.swift */,
 				CA074AED2AF8A805008CE691 /* HomeViewModelSpec.swift */,
 				CA074AEF2AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift */,
 				CA074AF12AF8B53F008CE691 /* PlaceDetailViewModelTests.swift */,
@@ -429,7 +426,6 @@
 				CA074AF22AF8B53F008CE691 /* PlaceDetailViewModelTests.swift in Sources */,
 				CA074AF02AF8A97A008CE691 /* PlaceListViewViewModelSpec.swift in Sources */,
 				CA074AF82AF8BC10008CE691 /* PhotoDetailViewModelTests.swift in Sources */,
-				CAE329532AF891DE00116A10 /* SearchAPlaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
