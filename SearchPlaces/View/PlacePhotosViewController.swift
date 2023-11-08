@@ -85,7 +85,6 @@ class PlacePhotosViewController: UIViewController, UICollectionViewDelegate, UIC
         if segue.identifier == "photosToPhotoDetail" {
             if let photoDetailViewController = segue.destination as? PhotoDetailViewController,
                let selectedPhoto = sender as? PlacePhoto {
-                print(selectedPhoto)
                 photoDetailViewController.viewModel = PhotoDetailViewModel()
                 photoDetailViewController.viewModel.selectedPhoto = selectedPhoto
                 photoDetailViewController.viewModel.searchItem = viewModel.searchItem
