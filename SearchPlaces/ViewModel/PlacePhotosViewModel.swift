@@ -1,80 +1,94 @@
 import Foundation
 
+// ViewModel to manage the photos related to a place.
 class PlacePhotosViewModel {
+    // Array to store the photos of a place.
     var placeImages: [PlacePhoto] = []
+    // The Foursquare ID for the specific place.
     var fourSquareId: String = ""
+    // The search item or term associated with the photos.
     var searchItem: String = ""
     
+    // Computed property to get the count of photos.
     var photoCount: Int {
         return placeImages.count
     }
     
-    
-    // Closures for notifying the ViewController about changes
-        var didUpdatePhotos: (() -> Void)?
-        var didReceiveError: ((Error) -> Void)?
+    // Closure called when photos are updated.
+    var didUpdatePhotos: (() -> Void)?
+    // Closure called when there is an error in fetching photos.
+    var didReceiveError: ((Error) -> Void)?
 
-        func fetchPhotos() {
-            guard let request = setUpHttpPhotosRequest() else { return }
-            let session = URLSession.shared
+    // Function to fetch photos from the network.
+    func fetchPhotos() {
+        // Setup the network request for fetching photos.
+        guard let request = setUpHttpPhotosRequest() else { return }
+        let session = URLSession.shared
 
-            let dataTask = session.dataTask(with: request, completionHandler: { [weak self] (data, response, error) -> Void in
-                if let error = error {
-                    print("Error: \(error)")
-                    self?.didReceiveError?(error)
-                } else if let data = data {
-                    do {
-                        if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
-                            self?.placeImages = jsonArray.compactMap { PlacePhoto(dictionary: $0) }
-                            print("JsonArray: \(jsonArray)")
-                            print("JsonArrayCompact: \(jsonArray.compactMap { PlacePhoto(dictionary: $0) })")
-                            print(self?.placeImages)
-                            self?.didUpdatePhotos?()
-                        } else {
-                            print("Could not cast JSON to an array of [String: Any] dictionaries")
-                            let jsonString = String(data: data, encoding: .utf8)
-                            print("Raw JSON string: \(String(describing: jsonString))")
-                            self?.didReceiveError?(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "JSON parsing failed"]))
-                        }
-                    } catch let error {
-                        DispatchQueue.main.async {
-                            print("JSON parsing failed: \(error.localizedDescription)")
-                            self?.didReceiveError?(error)
-                        }
+        // Perform the network data task.
+        let dataTask = session.dataTask(with: request) { [weak self] (data, response, error) in
+            if let error = error {
+                // If there is an error, call the error closure.
+                print("Error: \(error)")
+                self?.didReceiveError?(error)
+            } else if let data = data {
+                do {
+                    // Attempt to deserialize the JSON data.
+                    if let jsonArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] {
+                        // Map the JSON data to `PlacePhoto` objects and update the photos array.
+                        self?.placeImages = jsonArray.compactMap { PlacePhoto(dictionary: $0) }
+                        // Notify the ViewController that photos have been updated.
+                        self?.didUpdatePhotos?()
+                    } else {
+                        // Handle the error if JSON data can't be parsed.
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "JSON parsing failed"])
+                        self?.didReceiveError?(error)
                     }
-                } else {
-                    print("No data and no error... something went wrong!")
-                    self?.didReceiveError?(NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred"]))
+                } catch let error {
+                    // Handle any parsing errors.
+                    DispatchQueue.main.async {
+                        self?.didReceiveError?(error)
+                    }
                 }
-            })
-
-            dataTask.resume()
+            } else {
+                // Handle the case where there is no data and no error.
+                let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Unknown error occurred"])
+                self?.didReceiveError?(error)
+            }
         }
-   
-    func setUpHttpPhotosRequest() -> URLRequest?{
-        print("it is in fetch photos")
+
+        // Resume the task to start the network call.
+        dataTask.resume()
+    }
+
+    // Function to set up the HTTP request for fetching photos.
+    func setUpHttpPhotosRequest() -> URLRequest? {
+        // HTTP headers for the request.
         let headers = [
-          "accept": "application/json",
-          "Authorization": "fsq30DgtIq+UgKbZuc/qp6FBAAFSInBaxmhfo3qHxb0ylUI="
+            "accept": "application/json",
+            "Authorization": "fsq30DgtIq+UgKbZuc/qp6FBAAFSInBaxmhfo3qHxb0ylUI="
         ]
 
+        // Construct the URL string using the Foursquare ID.
         let urlString = "https://api.foursquare.com/v3/places/\(fourSquareId)/photos"
         guard let url = URL(string: urlString) else {
-            print("Invalid URL")
+            // If the URL is invalid, return nil.
             return nil
         }
+        // Create a URLRequest object with the URL and headers.
         var request = URLRequest(url: url, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         return request
     }
     
+    // Function to get the image URL string for a given index path.
     func imageURLString(for indexPath: IndexPath) -> String? {
+        // Ensure the index is within bounds of the photos array.
         guard indexPath.item < placeImages.count else { return nil }
 
+        // Get the specific photo object and construct the image URL string.
         let imageDict = placeImages[indexPath.item]
-        let prefix = imageDict.prefix
-        let suffix = imageDict.suffix
-        return prefix + "200" + suffix
-    }}
-
+        return imageDict.prefix + "200" + imageDict.suffix
+    }
+}
